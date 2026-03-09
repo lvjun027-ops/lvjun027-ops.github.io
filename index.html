@@ -9,28 +9,35 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
         }
 
-        /* 科技感深色主题 */
+        /* 明亮简洁高级主题 */
         :root {
-            --primary: #00d4ff;
-            --secondary: #0066ff;
-            --dark: #121826;
-            --light-dark: #1e293b;
-            --text: #e2e8f0;
-            --gray: #94a3b8;
+            --primary: #2563eb;
+            --secondary: #3b82f6;
+            --bg: #ffffff;
+            --card-bg: #f8fafc;
+            --border: #e2e8f0;
+            --text: #1e293b;
+            --gray: #64748b;
+            --light: #f1f5f9;
         }
 
+        /* 页面背景：渐变+极细腻纹理，高级不单调 */
         body {
-            background-color: var(--dark);
+            background: linear-gradient(135deg, #ffffff 0%, #f0f7ff 100%);
+            background-attachment: fixed;
             color: var(--text);
-            line-height: 1.6;
+            line-height: 1.7;
+            min-height: 100vh;
         }
 
         /* 导航栏 */
         .navbar {
-            background: var(--light-dark);
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
             padding: 1rem 0;
             position: sticky;
             top: 0;
@@ -42,18 +49,19 @@
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
-            gap: 1rem;
+            gap: 0.8rem;
         }
         .nav-link {
             color: var(--text);
             text-decoration: none;
-            padding: 0.5rem 1rem;
-            border-radius: 6px;
+            padding: 0.5rem 1.2rem;
+            border-radius: 8px;
             transition: 0.2s;
+            font-size: 0.95rem;
         }
         .nav-link:hover, .nav-link.active {
             background: var(--primary);
-            color: #000;
+            color: white;
         }
 
         .container {
@@ -65,45 +73,42 @@
         /* 头部 */
         header {
             text-align: center;
-            padding: 3rem 0;
-            border-bottom: 1px solid var(--light-dark);
+            padding: 3rem 0 2rem;
         }
 
+        /* 风景头像 */
         .avatar {
-            width: 120px;
-            height: 120px;
+            width: 130px;
+            height: 130px;
             border-radius: 50%;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            margin: 0 auto 1.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2.5rem;
-            font-weight: bold;
-            color: white;
+            margin: 0 auto 1.2rem;
+            background-image: url("https://picsum.photos/id/256/800/800");
+            background-size: cover;
+            background-position: center;
+            border: 3px solid var(--primary);
+            box-shadow: 0 8px 20px rgba(37,99,235,0.15);
         }
 
         h1 {
-            font-size: 2.2rem;
-            margin-bottom: 0.5rem;
-            background: linear-gradient(90deg, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 0.4rem;
+            color: var(--text);
         }
 
         .title {
-            font-size: 1.1rem;
+            font-size: 1rem;
             color: var(--gray);
             margin-bottom: 1rem;
         }
 
         .tag {
             display: inline-block;
-            padding: 0.3rem 0.8rem;
+            padding: 0.3rem 0.9rem;
             margin: 0.3rem;
-            background: var(--light-dark);
+            background: var(--light);
             border-radius: 20px;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             color: var(--primary);
         }
 
@@ -113,97 +118,101 @@
         }
 
         h2 {
-            font-size: 1.5rem;
-            margin-bottom: 1.5rem;
-            padding-left: 1rem;
-            border-left: 4px solid var(--primary);
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 1.2rem;
+            color: var(--text);
         }
 
+        /* 卡片样式 - 带阴影更精致 */
         .card {
-            background: var(--light-dark);
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(4px);
+            border: 1px solid var(--border);
             padding: 1.5rem;
             border-radius: 12px;
-            margin-bottom: 1.2rem;
-            transition: transform 0.2s;
+            margin-bottom: 1rem;
+            transition: 0.3s;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
         }
-
         .card:hover {
-            transform: translateY(-3px);
+            border-color: var(--secondary);
+            box-shadow: 0 6px 18px rgba(37,99,235,0.08);
+            transform: translateY(-2px);
         }
 
         .card h3 {
             color: var(--primary);
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.4rem;
+            font-size: 1.1rem;
+            font-weight: 600;
         }
 
         .card .sub {
             color: var(--gray);
-            font-size: 0.95rem;
-            margin-bottom: 0.8rem;
+            font-size: 0.9rem;
+            margin-bottom: 0.7rem;
         }
 
         ul {
-            padding-left: 1.5rem;
+            padding-left: 1.4rem;
         }
-
         li {
-            margin: 0.5rem 0;
+            margin: 0.4rem 0;
         }
 
         /* 技能网格 */
         .skill-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-            gap: 1rem;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 0.8rem;
         }
-
         .skill-item {
-            background: var(--light-dark);
-            padding: 1rem;
+            background: rgba(255,255,255,0.7);
+            border: 1px solid var(--border);
+            padding: 0.9rem;
             border-radius: 8px;
             text-align: center;
+            font-size: 0.9rem;
         }
 
-        /* 页面卡片链接 */
+        /* 快捷卡片 */
+        .page-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
         .page-card {
-            background: var(--light-dark);
-            padding: 2rem;
+            background: rgba(255,255,255,0.8);
+            border: 1px solid var(--border);
+            padding: 1.5rem;
             border-radius: 12px;
             text-align: center;
-            transition: 0.3s;
-            cursor: pointer;
             text-decoration: none;
             color: var(--text);
-            display: block;
+            transition: 0.3s;
         }
         .page-card:hover {
             background: var(--primary);
-            color: #000;
-        }
-        .page-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 1.5rem;
-            margin: 2rem 0;
+            color: white;
+            transform: translateY(-2px);
         }
 
         /* 联系方式 */
         .contact {
             text-align: center;
             padding: 2rem;
-            background: var(--light-dark);
+            background: rgba(255,255,255,0.8);
+            border: 1px solid var(--border);
             border-radius: 12px;
         }
-
         .contact a {
             color: var(--primary);
             text-decoration: none;
             margin: 0 1rem;
-            font-size: 1.1rem;
-        }
-
-        .contact a:hover {
-            color: var(--secondary);
+            font-size: 1rem;
+            line-height: 2;
         }
 
         /* 底部 */
@@ -211,18 +220,15 @@
             text-align: center;
             padding: 2rem 0;
             color: var(--gray);
-            border-top: 1px solid var(--light-dark);
+            border-top: 1px solid var(--border);
             margin-top: 3rem;
+            font-size: 0.9rem;
         }
 
         /* 响应式 */
         @media (max-width: 768px) {
-            h1 {
-                font-size: 1.8rem;
-            }
-            .skill-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
+            h1 { font-size: 1.7rem; }
+            .skill-grid { grid-template-columns: repeat(2, 1fr); }
         }
     </style>
 </head>
@@ -243,7 +249,7 @@
     <!-- 首页模块 -->
     <section id="home">
         <header>
-            <div class="avatar">嵌</div>
+            <div class="avatar"></div>
             <h1>吕君杭</h1>
             <p class="title">嵌入式软件开发工程师 | 单片机 | STM32 | 物联网</p>
             <div>
@@ -260,7 +266,6 @@
             <p>熟练掌握嵌入式系统开发，精通C/C++语言与STM32开发，熟悉各类通信协议与硬件调试，具备完整的项目开发与实习经验。注重代码规范与文档维护，擅长物联网设备开发、车载总线、传感器数据采集等方向，具备独立开发与团队协作能力。</p>
         </div>
 
-        <!-- 快捷入口卡片 -->
         <h2>快速浏览</h2>
         <div class="page-grid">
             <a href="#projects" class="page-card">📊 项目详情</a>
@@ -323,7 +328,7 @@
             <div class="skill-item">传感器应用</div>
         </div>
 
-        <h2>🎓 教育背景</h2>
+        <h2 style="margin-top:2rem;">🎓 教育背景</h2>
         <div class="card">
             <h3>浙江大学 | 软件开发专业</h3>
             <p class="sub">本科 | 2021.09 - 2025.07</p>
@@ -343,7 +348,7 @@
             </ul>
         </div>
 
-        <h2>📌 求职意向</h2>
+        <h2 style="margin-top:2rem;">📌 求职意向</h2>
         <div class="card">
             <h3>嵌入式软件开发工程师</h3>
             <p>期望岗位：嵌入式软件开发、单片机开发、物联网开发、硬件驱动开发</p>
@@ -355,8 +360,8 @@
     <section id="contact">
         <h2>📞 联系方式</h2>
         <div class="contact">
-            <a href="mailto:2811790316@qq.com">📩 2811790316@qq.com</a><br><br>
-            <a href="tel:15067940992">📱 15067940992</a><br><br>
+            <a href="mailto:2811790316@qq.com">📩 2811790316@qq.com</a><br>
+            <a href="tel:15067940992">📱 15067940992</a><br>
             <a href="https://lvjun027-ops.github.io" target="_blank">🔗 GitHub</a>
         </div>
     </section>
